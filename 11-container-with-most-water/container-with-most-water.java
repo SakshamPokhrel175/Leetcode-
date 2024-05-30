@@ -20,14 +20,6 @@ class Solution {
 }
 
 
-
-
-
-
-
-
-
-
 // class Solution {
 //     public int maxArea(int[] height) {
  
