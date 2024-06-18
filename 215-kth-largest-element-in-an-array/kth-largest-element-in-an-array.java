@@ -62,3 +62,5 @@ class Solution {
         return nums[pivot_idx];
     }
 }
+
+// https://www.youtube.com/watch?v=QFoNfrP7knk
