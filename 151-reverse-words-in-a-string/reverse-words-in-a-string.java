@@ -1,18 +1,57 @@
 class Solution {
     public String reverseWords(String s) {
-        // Split the input string by whitespace
-        String[] words = s.trim().split("\\s+");
+        // Step 1: Reverse the whole string
+        s = new StringBuilder(s).reverse().toString();
         
-        // Initialize an empty string to store the reversed sentence
-        StringBuilder reversed = new StringBuilder();
+        int i = 0;
+        //hero honge hamare l and r jo reverse karenge words ko 
+        int l = 0, r = 0;
+
+        int n = s.length();
+       char[] charArray = s.toCharArray();
         
-        // Iterate over the words array in reverse order
-        for (int i = words.length - 1; i >= 0; i--) {
-            // Append each word followed by a space to the reversed string
-            reversed.append(words[i]).append(" ");
+        while (i < n) {
+            // Move 'i' until the end of a word or string
+            while (i < n && charArray[i] != ' ') {  // 'i' ko aaghar Character dekha  to  
+                                                    // 'r' ko degaa and do i++ and r++
+
+                charArray[r] = charArray[i];
+                i++;
+                r++;
+            }
+
+
+            
+            // If 'l' is less than 'r', reverse the current word
+            if (l < r) {
+                reverse(charArray, l, r - 1);
+                if (r < n) {
+                    charArray[r++] = ' ';
+                }
+                l = r;
+            }
+            
+            // Move 'i' to the next character
+            i++;
         }
         
-        // Convert the StringBuilder to a string and trim any extra whitespace
-        return reversed.toString().trim();
+        // Remove the trailing space if there is one
+        if (r > 0 && charArray[r - 1] == ' ') {
+            r--;
+        }
+        
+        // Return the result as a string
+        return new String(charArray, 0, r);
+    }
+    
+    // Helper method to reverse a portion of the char array
+    private void reverse(char[] arr, int start, int end) {
+        while (start < end) {
+            char temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
     }
 }
