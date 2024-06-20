@@ -1,28 +1,31 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+// Thus, the time complexity is:\U0001d442(\U0001d45a+\U0001d45b)
+// where \U0001d45a is the length of list a and \U0001d45b is the length of list b.
 
-        if(list1!=null && list2!=null){
-        if(list1.val<list2.val){
-            list1.next=mergeTwoLists(list1.next,list2);
-            return list1;
+// Thus, the space complexity is:\U0001d442(1)
+
+class Solution {
+    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+        ListNode dummy = new ListNode(0);  // Create a dummy node
+        ListNode tail = dummy;  // Tail pointer to build the new list
+
+        while (a != null && b != null) {
+            if (a.val <= b.val) {
+                tail.next = a;
+                a = a.next;
+            } else {
+                tail.next = b;
+                b = b.next;
             }
-            else{
-                list2.next=mergeTwoLists(list1,list2.next);
-                return list2;
+            tail = tail.next;
         }
+
+        // Attach the remaining elements
+        if (a == null) {
+            tail.next = b;
+        } else {
+            tail.next = a;
         }
-        if(list1==null)
-            return list2;
-        return list1;
+
+        return dummy.next;  // The merged list is pointed by dummy.next
     }
 }
