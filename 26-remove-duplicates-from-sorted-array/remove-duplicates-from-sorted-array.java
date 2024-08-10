@@ -1,6 +1,9 @@
 class Solution {
     public int removeDuplicates(int[] arr) {
         int i = 0;  // Pointer to track the last unique element position
+        if(arr.length==0){
+            return 0;
+        }
         
         // Iterate through the array starting from the second element
         for (int j = 1; j < arr.length; j++) {
@@ -16,5 +19,31 @@ class Solution {
         return i + 1;
     }
 }
+
+
+// Example:
+// Given the sorted array arr = [1, 1, 2, 2, 3, 4, 4, 5]:
+
+// Initial State: i = 0 (for arr[0] = 1, the first unique element)
+
+// Iteration:
+
+// j = 1: arr[1] = 1 (duplicate of arr[0])
+// j = 2: arr[2] = 2 (new unique element)
+// Increment i to 1, store arr[2] at arr[1]
+// j = 3: arr[3] = 2 (duplicate of arr[2])
+// j = 4: arr[4] = 3 (new unique element)
+// Increment i to 2, store arr[4] at arr[2]
+// ... and so forth.
+// Final State: Modified array arr = [1, 2, 3, 4, 5, ...]
+
+// Return Value: i + 1 = 5, which is the length of the array containing unique elements.
+
+// Complexity:
+// Time Complexity: O(n), where n is the length of the array arr. Each element is visited exactly once.
+// Space Complexity: O(1). The algorithm uses only a constant amount of extra space, regardless of the input size, as it modifies the array in-place.
+
+
+
 
 
