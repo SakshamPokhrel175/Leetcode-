@@ -1,15 +1,34 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int j = 1;
+        if (nums.length == 0) return 0;
+
+        int j = 0; // Index of the last unique element
+
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[j - 1]) {
-                nums[j] = nums[i];
+            if (nums[i] != nums[j]) {
                 j++;
+                nums[j] = nums[i];
             }
         }
-        return j;
+
+        return j + 1; // Length of array with unique elements
     }
 }
+
+
+
+// class Solution {
+//     public int removeDuplicates(int[] nums) {
+//         int j = 1;
+//         for (int i = 1; i < nums.length; i++) {
+//             if (nums[i] != nums[j - 1]) {
+//                 nums[j] = nums[i];
+//                 j++;
+//             }
+//         }
+//         return j;
+//     }
+// }
 
 // class Solution {
 //     public int removeDuplicates(int[] nums) {
