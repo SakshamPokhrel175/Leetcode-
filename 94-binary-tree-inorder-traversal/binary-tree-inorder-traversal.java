@@ -20,13 +20,13 @@ class Solution {
         return result;
     }
 
-    private void inorderHelper(TreeNode root , List<Integer> result){
-        if(root == null){
+    private void inorderHelper(TreeNode node , List<Integer> result){
+        if(node == null){
             return ;
         }
 
-        inorderHelper(root.left , result);
-        result.add(root.val);
-        inorderHelper(root.right , result);
+        inorderHelper(node.left , result);
+        result.add(node.val);
+        inorderHelper(node.right , result);
     }
 }
