@@ -1,25 +1,16 @@
 class Solution {
     public int findGCD(int[] nums) {
-        for (int i=0;i<nums.length-1;i++){
-            for (int j=0;j<nums.length-1-i;j++){
-                if(nums[j]>nums[j+1]){
-                    int temp=nums[j];
-                    nums[j]=nums[j+1];
-                    nums[j+1]=temp;
-                }
-            }
+        int min=nums[0];
+        int max=nums[0];
+
+        for(int i=0;i<nums.length;i++){
+            min=Math.min(min , nums[i]);
+            max=Math.max(max , nums[i]);
         }
+        System.out.println("MIN VALUE IS "+min);
+        System.out.println("MAX VALUE IS "+max);
 
-//         System.out.println("Sorted Array:");
-// for (int i = 0; i < nums.length; i++) { // Use nums.length instead of nums.length - 1
-//     System.out.println(nums[i]);
-// }
-// System.out.println();
-
-
-        int a = nums[0];
-        int b= nums[nums.length-1];
-        return gcd(a,b);
+        return gcd(min,max);
         
     }
 
