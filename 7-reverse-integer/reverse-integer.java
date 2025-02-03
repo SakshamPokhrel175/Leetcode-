@@ -6,9 +6,13 @@ class Solution {
         int r=n%10;
          
 
-         // Overflow check
-            if (s > Integer.MAX_VALUE / 10 || s < Integer.MIN_VALUE / 10) return 0;
-            
+          // Check for overflow before updating the result
+        if (s > Integer.MAX_VALUE / 10 || (s == Integer.MAX_VALUE / 10 && r > Integer.MAX_VALUE % 10)) {
+                return 0;
+            }
+        if (s < Integer.MIN_VALUE / 10 || (s == Integer.MIN_VALUE / 10 && r < Integer.MIN_VALUE % 10)) {
+                return 0;
+            }
         s=s*10+r;
          n=n/10;
 
