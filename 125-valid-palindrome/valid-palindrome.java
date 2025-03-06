@@ -1,23 +1,20 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        // Convert to lowercase and remove non-alphanumeric characters
-        // Time complexity: O(n)
-        // Space complexity: O(n)
-        s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
+        s=s.toLowerCase();
+        s=s.replaceAll("[^a-z0-9]", "");
         
-        int start = 0;
-        int end = s.length() - 1;
-        
-        // Check for palindrome
-        // Time complexity: O(n)
-        while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
-                return false; // Not a palindrome
+        int left=0;
+        int right=s.length()-1;
+        while(left<right){
+            if(s.charAt(left)!=s.charAt(right)){
+                return false;
             }
-            start++;
-            end--;
+            left++;
+            right--;
         }
+
+         return true;
+
         
-        return true; // Is a palindrome
     }
 }
