@@ -16,3 +16,10 @@ class Solution {
 
     }
 }
+
+// ......................Optimization...............
+
+// class Solution {
+//     public int strStr(String haystack, String needle) {
+//     }
+// }
