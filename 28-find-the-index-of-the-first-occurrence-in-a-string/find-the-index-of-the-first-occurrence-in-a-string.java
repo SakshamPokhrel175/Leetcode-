@@ -1,25 +1,30 @@
-class Solution {
-    public int strStr(String haystack, String needle) {
+// class Solution {
+//     public int strStr(String haystack, String needle) {
 
-        if (needle.isEmpty())  return 0;
+//         if (needle.isEmpty())  return 0;
 
-        int m = haystack.length();
-        int n = needle.length();
+//         int m = haystack.length();
+//         int n = needle.length();
 
-        for (int i = 0; i <= (m - n); i++) {
-            if (haystack.substring(i, i + n).equals(needle)) {
-                return i;
-            }
-        }
+//         for (int i = 0; i <= (m - n); i++) {
+//             if (haystack.substring(i, i + n).equals(needle)) {
+//                 return i;
+//             }
+//         }
 
-        return -1;
+//         return -1;
 
-    }
-}
+//     }
+// }
 
 // ......................Optimization...............
 
-// class Solution {
-//     public int strStr(String haystack, String needle) {
-//     }
-// }
+class Solution {
+    public int strStr(String haystack, String needle) {
+        if(needle.isEmpty()) return 0;
+
+        return haystack.indexOf(needle);
+
+
+    }
+}
