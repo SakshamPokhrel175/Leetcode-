@@ -1,23 +1,21 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
 
+        if (nums.length == 0)
+            return 0;
+        int count = 1;
 
-        if(nums.length==0) return 0;
-        int count=1;
-
-        for(int i=1;i<nums.length;i++){
-            if(nums[i]!=nums[i-1]){
-                nums[count]=nums[i];
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[count] = nums[i];
                 count++;
             }
         }
 
         return count;
-        
+
     }
 }
-
-
 
 // class Solution {
 //     public int removeDuplicates(int[] nums) {
@@ -35,8 +33,6 @@ class Solution {
 //         return j + 1; // Length of array with unique elements
 //     }
 // }
-
-
 
 // class Solution {
 //     public int removeDuplicates(int[] nums) {
@@ -68,17 +64,13 @@ class Solution {
 //     }
 // }
 
-
-
-
-
 // class Solution {
 //     public int removeDuplicates(int[] arr) {
 //         int i = 0;  // Pointer to track the last unique element position
 //         if(arr.length==0){
 //             return 0;
 //         }
-        
+
 //         // Iterate through the array starting from the second element
 //         for (int j = 1; j < arr.length; j++) {
 //             // If the current element is different from the previous unique element
@@ -88,12 +80,11 @@ class Solution {
 //             }
 //             // If arr[i] == arr[j], it means j-th element is a duplicate, so we skip it
 //         }
-        
+
 //         // Return the length of the array with unique elements (i + 1)
 //         return i + 1;
 //     }
 // }
-
 
 // // Example:
 // // Given the sorted array arr = [1, 1, 2, 2, 3, 4, 4, 5]:
@@ -116,8 +107,3 @@ class Solution {
 // // Complexity:
 // // Time Complexity: O(n), where n is the length of the array arr. Each element is visited exactly once.
 // // Space Complexity: O(1). The algorithm uses only a constant amount of extra space, regardless of the input size, as it modifies the array in-place.
-
-
-
-
-
