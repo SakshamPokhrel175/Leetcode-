@@ -1,17 +1,15 @@
 class Solution {
     public String removeDuplicates(String s) {
-        char[] stack=new char[s.length()];
-        int top=-1;
-
-        for(char ch: s.toCharArray()){
-            if(top!=-1 && stack[top]== ch){
-                top--;
+        StringBuilder sb = new StringBuilder();
+        for(char c:s.toCharArray()){
+            if(sb.length()>0 && sb.charAt(sb.length()-1) == c ){
+                sb.deleteCharAt(sb.length() -1);
             }else{
-                stack[++top]=ch;
+                sb.append(c);
             }
         }
-        return new String(stack,0,top+1);
 
+        return sb.toString();
 
         
     }
