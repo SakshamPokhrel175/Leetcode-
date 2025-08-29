@@ -10,10 +10,9 @@ class Solution {
         while (left <= right) {
             if (s.charAt(left) != s.charAt(right)) {
                 return false; // mismatch → not palindrome
-            } else { // move both pointers inward
-                left++;
-                right--;
-            }
+            } // move both pointers inward
+            left++;
+            right--;
         }
 
         return true;
