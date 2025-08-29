@@ -1,36 +1,28 @@
 class Solution {
     public int maxArea(int[] height) {
+        //Two pointer 
+
         int left = 0;
         int right = height.length - 1;
-        int maxArea = 0;
+        //FIND max area 
+        int max_area_of_water = 0;
 
         while (left < right) {
-            int area = Math.min(height[left], height[right]) * (right - left);
-            maxArea = Math.max(maxArea, area);
+            int h = Math.min(height[left], height[right]);
+            int w = (right - left);
 
-            if (height[left] < height[right]) {
-                left++;
-            } else {
+            int area = h * w; //(height * width)
+
+            max_area_of_water = Math.max(max_area_of_water, area); //max area 
+
+            if (height[left] > height[right]) {
                 right--;
+            } else {
+                left++;
             }
         }
 
-        return maxArea;
+        return max_area_of_water;
+
     }
 }
-
-
-// class Solution {
-//     public int maxArea(int[] height) {
-//         int maxArea = 0;
-
-//         for (int i = 0; i < height.length; i++) {
-//             for (int j = i + 1; j < height.length; j++) {
-//                 int area = Math.min(height[i], height[j]) * (j - i);
-//                 maxArea = Math.max(maxArea, area);
-//             }
-//         }
-
-//         return maxArea;
-//     }
-// }
