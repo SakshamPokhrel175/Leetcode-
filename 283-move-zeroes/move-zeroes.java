@@ -12,8 +12,8 @@ class Solution {
 
                 left++;
 
-            } 
-                right++;
+            }
+            right++;
 
         }
 
