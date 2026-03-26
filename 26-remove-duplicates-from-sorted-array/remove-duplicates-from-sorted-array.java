@@ -4,14 +4,10 @@ class Solution {
         for(int i=1;i<nums.length;i++){
             if(nums[i]!=nums[i-1]){
                 nums[unique]=nums[i];
-                unique ++;
+                unique++;
             }
-            
         }
-
         return unique;
         
     }
 }
-
-//https://www.geeksforgeeks.org/problems/remove-duplicate-elements-from-sorted-array/1
