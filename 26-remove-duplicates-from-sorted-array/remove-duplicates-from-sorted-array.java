@@ -6,8 +6,10 @@ class Solution {
                 nums[unique]=nums[i];
                 unique++;
             }
+            
         }
         return unique;
+        
         
     }
 }
