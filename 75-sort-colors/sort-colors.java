@@ -9,6 +9,7 @@ class Solution {
 
             while(left<=right){
                 if(nums[left]==0){
+                    //swap(j,i;)
                     int temp=nums[left];
                     nums[left]=nums[i];
                     nums[i]=temp;
@@ -16,14 +17,18 @@ class Solution {
                     i++;
                 }else if(nums[left]==1){
                     left++;
-                }else{ //(left==2)
+                }else{ //(nums[left]==2)
+                    //swap(j,k);
                     int temp=nums[left];
                     nums[left]=nums[right];
                     nums[right]=temp;
                     right--;
                 }
             }
-        
+//The algorithm is O(n) because each element is visited and handled a constant number of times, and the pointers only move linearly across the array.
+//         ⏱️ Complexity
+// Time: O(n) ✅
+// Space: O(1) ✅ (in-place)
         
     }
 }
