@@ -1,27 +1,40 @@
+// class Solution {
+//     public int[] sortedSquares(int[] nums) {
+//         for(int i=0;i<nums.length;i++){
+//             //square
+//             nums[i]=nums[i]*nums[i];
+//         }
+//         Arrays.sort(nums);
+
+//         return nums;
+//     }
+// }
+//this was O(nlogn) so now we do for O(n)
+
+//https://youtu.be/MakXVqKUcug
 class Solution {
     public int[] sortedSquares(int[] nums) {
+        int[] result=new int[nums.length];
         int i=0;
         int j=nums.length-1;
-        int k=nums.length-1;
-        int[] result= new int[nums.length];
+        int k=nums.length-1; //result = [_, _, _, _, 100]
 
         while(k>=0){
-            int a=nums[i]*nums[i];
-            int b=nums[j]*nums[j];
+            int a=nums[i]*nums[i];  //square of i value
+            int b=nums[j]*nums[j]; //square of j value
 
-            if(a<b){
-                result[k]=b;
-                k--;
-                j--;
-                
-            }else{
+            //compare
+            if(a>b){
                 result[k]=a;
-                k--;
                 i++;
-                
-                
+                k--;
+            }else{
+                result[k]=b;
+                j--;
+                k--;
             }
         }
+
         return result;
     }
 }
