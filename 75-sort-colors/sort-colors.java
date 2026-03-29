@@ -1,26 +1,34 @@
 class Solution {
     public void sortColors(int[] nums) {
         int i=0;
-        int left=0;
-        int right=nums.length-1;
+        int left=0; //j
+        int right=nums.length-1;  //k
+    
+            // int left=0;
+            // int right=nums.length-1;
 
-        while(left<=right){
-            if(nums[left]==0){
-                int temp=nums[left];
-                nums[left]=nums[i];
-                nums[i]=temp;
-                i++;
-                left++;
-            }else if (nums[left]==1){
-                left++;
-            }else{
-                int temp=nums[left];
-                nums[left]=nums[right];
-                nums[right]=temp;
-                right--;
+            while(left<=right){
+                if(nums[left]==0){
+                    //swap(j,i;)
+                    int temp=nums[left];
+                    nums[left]=nums[i];
+                    nums[i]=temp;
+                    left++;
+                    i++;
+                }else if(nums[left]==1){
+                    left++;
+                }else{ //(nums[left]==2)
+                    //swap(j,k);
+                    int temp=nums[left];
+                    nums[left]=nums[right];
+                    nums[right]=temp;
+                    right--;
+                }
             }
-                
-        }
+//The algorithm is O(n) because each element is visited and handled a constant number of times, and the pointers only move linearly across the array.
+//         ⏱️ Complexity
+// Time: O(n) ✅
+// Space: O(1) ✅ (in-place)
         
     }
 }
