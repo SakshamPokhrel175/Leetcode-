@@ -20,6 +20,7 @@ class Solution {
             }
 
             if (map.size() == 2 || map.size() < 2) {
+                //if (map.size() <= 2)
                 max = Math.max(max, right - left + 1);
             }
 
