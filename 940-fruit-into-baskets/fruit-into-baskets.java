@@ -1,26 +1,30 @@
 class Solution {
-    public int totalFruit(int[] tree) {
-        int max = 0;
-        int curMax = 0;
-        int prev = -1;
-        int prev2 = -1;
-        int prevCount = 0;
+    public int totalFruit(int[] fruits) {
 
-        for (int fruit: tree) {
-            if (fruit == prev || fruit == prev2) {
-                curMax++;
-            } else {
-                max = Math.max(max, curMax);
-                curMax = prevCount + 1;
+        int left = 0;
+        int max = Integer.MIN_VALUE;
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int right = 0; right < fruits.length; right++) {
+            int value = fruits[right];
+            map.put(value, map.getOrDefault(value, 0) + 1);
+
+            while (map.size() > 2) {
+                int leftvalue = fruits[left];
+                map.put(leftvalue, map.get(leftvalue) - 1);
+
+                if (map.get(leftvalue) == 0) {
+                    map.remove(leftvalue);
+                }
+                left++;
             }
-            if (fruit == prev) {
-                prevCount++;
-            } else {
-                prevCount = 1;
-                prev2 = prev;
-                prev = fruit;
+
+            if (map.size() == 2 || map.size() < 2) {
+                max = Math.max(max, right - left + 1);
             }
+
         }
-        return Math.max(max, curMax);
+        return max;
+
     }
 }
