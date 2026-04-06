@@ -1,6 +1,5 @@
 class Solution {
     public int totalFruit(int[] fruits) {
-
         int left = 0;
         int max = Integer.MIN_VALUE;
         Map<Integer, Integer> map = new HashMap<>();
@@ -17,20 +16,15 @@ class Solution {
                     map.remove(leftvalue);
                 }
                 left++;
+
             }
 
-            if (map.size() == 2 || map.size() < 2) {
-                //if (map.size() <= 2)
+            if (map.size() <= 2) {
                 max = Math.max(max, right - left + 1);
             }
-
         }
+
         return max;
 
     }
 }
-
-
-//same like 
-
-//https://www.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1
